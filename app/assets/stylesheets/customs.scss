@@ -1,0 +1,17 @@
+.contact-icon-box {
+  margin-right: 1rem;
+
+  i {
+    font-size: 1.2rem;
+  }
+}
+
+a {
+  text-decoration-color: transparent;
+
+  &:hover {
+    transition: all .4s;
+    text-decoration-color: black;
+  }
+}
+
