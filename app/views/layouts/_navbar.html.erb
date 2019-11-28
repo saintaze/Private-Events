@@ -18,5 +18,17 @@
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
+
+    <ul class="navbar-nav ml-auto">
+      <% if logged_in? %>         
+        <li class="nav-item">
+          <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Login', login_path, class: "nav-link #{active_link?(login_path)}"%>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </nav>

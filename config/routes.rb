@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get       '/about',        to: 'static_pages#about'
   
   get       '/signup',       to: 'users#new'
-  # get       '/login',        to: 'sessions#new'
-  # post      '/login',        to: 'sessions#create' 
-  # delete    '/logout',       to: 'sessions#destroy' 
+  get       '/login',        to: 'sessions#new'
+  post      '/login',        to: 'sessions#create' 
+  delete    '/logout',       to: 'sessions#destroy' 
 
   resources :users,          only: [:create, :show]   
   # resources :posts,          only: [:index, :new, :create, :destroy] 

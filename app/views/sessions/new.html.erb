@@ -1,0 +1,32 @@
+<h1 class="text-center login-heading my-5">Log In <span class="login-tagline">Get the show on the road!</span></h1>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_with(scope: 'session', local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1rem;">
+        <div class="form-check">
+          <%= f.label :remember_me, class:"form-check-label", style:"font-size: 1rem;" do%>
+            <%= f.check_box :remember_me, class: "form-check-input" %> Remember me on this computer
+          <% end %>
+        </div>
+      </div>
+
+      <%= f.submit :submit, class: "btn btn-primary", style: "margin-bottom: 1rem;" %>
+      <div style="font-size: 1rem;">
+        New user?&nbsp; <%= link_to 'Sign up now', signup_path %>
+      </div>
+    <% end%>
+  
+  </div>
+</div>
