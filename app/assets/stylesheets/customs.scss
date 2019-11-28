@@ -1,3 +1,6 @@
+ @import "bootstrap";
+ @import "variables";
+
 .contact-icon-box {
   margin-right: 1rem;
 
@@ -13,5 +16,28 @@ a {
     transition: all .4s;
     text-decoration-color: black;
   }
+}
+
+
+.form-control{
+  background-color: #efefef;
+}
+
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.signup-tagline, .login-tagline, .newpost-tagline{
+  letter-spacing: 1px;
+  margin-left: 8px;
+  font-size: .9rem;
+  font-weight: 100;
+  display: inline-block;
+  transform: translateY(9px);
+}
+
+.field_with_errors input, .field_with_errors textarea{
+  border: 1px solid $warning;
 }
 
