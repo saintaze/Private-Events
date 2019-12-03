@@ -45,6 +45,22 @@ class User < ApplicationRecord
     self.update_attribute(:remember_digest, nil)
   end
 
+  def created_past_events 
+    events.where("date < ? ",Time.zone.now )
+  end
+
+
+  def created_future_events 
+    events.where("date >= ? ",Time.zone.now )
+  end
+
+  def attended_past_events 
+    attended_events.where("date < ? ",Time.zone.now )
+  end
+
+  def attended_future_events 
+    attended_events.where("date >= ? ",Time.zone.now )
+  end
   #/// CLASS METHODS ////#
 
   def self.digest(string)

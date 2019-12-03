@@ -39,7 +39,7 @@ module SessionsHelper
 
   def logged_in_user
     unless logged_in?
-      flash[:danger] = "Login to read or create secrets!"
+      flash[:danger] = "Login to read or enjoy events!"
       redirect_to login_url
     end
   end

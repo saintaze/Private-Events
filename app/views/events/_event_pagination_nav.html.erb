@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center my-5">
+  <div class="m-auto">
+    <ul class="pagination pagination-lg">
+       <li class="page-item <%= (@starting_page == 1) ? 'disabled' : '' %>">
+        <%= link_to "«", events_path(page: @starting_page - 1, last_page: @last_page - 7, type: params[:type]), class: "page-link" %>
+       </li>
+      <% (@starting_page..@ending_page).each do |i| %>
+        <li class="page-item <%= i == @page_num ? 'active' : '' %>">
+          <%= link_to i, events_path(page: i, last_page: @last_page, type: params[:type]), class: "page-link" %>
+        </li>
+      <% end %>
+      <li class="page-item <%= (@ending_page == @total_pages) ? 'disabled' : '' %>">
+        <%= link_to "»", events_path(page: @ending_page, last_page: @ending_page, type: params[:type]), class: "page-link" %>
+      </li>
+    </ul>
+  </div>
+</div>

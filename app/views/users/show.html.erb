@@ -1,2 +1,15 @@
-<h1>Users#name</h1>
-<h1>Users#email</h1>
+<%# show all the events created by a person %>
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <div class="d-flex justify-content-between my-5 align-items-start">
+      <h1 class="text-center"><%= @user.name.titleize %></h1>
+      <%= link_to 'New Event', new_event_path, class: "btn btn-success btn-sm" %>
+    </div>
+    <h4 class="mt-5 mb-4">Events Created</h4>
+    <%= render partial: 'events/event_table', locals: {event: "created"} %>
+
+    <h4 class="mb-4" style="margin-top: 4rem;">Events Attending</h4>
+    <%= render partial: 'events/event_table', locals: {event: "attended"} %>
+  </div>
+</div>

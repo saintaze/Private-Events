@@ -1,0 +1,5 @@
+<%= form_with(scope: "attendance", url: "/events/attend", local: true) do |f| %>
+  <%= f.hidden_field :attendee, value: current_user.id %>
+  <%= f.hidden_field :event, value: @event.id %>
+  <%= f.submit :Attend, class: "btn btn-success btn-sm" %>
+<% end %>

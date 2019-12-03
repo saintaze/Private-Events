@@ -1,0 +1,43 @@
+
+<table class="table table-hover table-sm">
+  <thead>
+   <tr>
+      <th scope="col" style="width: 16%">Date</th>
+      <th scope="col" style="width: 30%">Title</th>
+      <th scope="col" style="width: 27%">Location</th>
+      <th scope="col" style="width: 14%">Host</th>
+      <th scope="col" style="width: 16%">Guests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="5" class="h5">Past</td></tr>
+    <% if @user.send("#{event}_past_events").count > 0 %>
+      <% @user.send("#{event}_past_events").each do |event| %>
+        <tr>
+          <td scope="row"><%= event.date.strftime('%d %b %Y') %></td>
+          <td><%= link_to event.title, event_path(event) %></td>
+          <td><%= event.location %></td>
+          <td><%= link_to event.creator.name.titlecase, user_path(event.creator) %></td>
+          <td ><%= link_to event.attendees.count, event_path(event)  %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr><td colspan="5">No past events to show :)</td></tr>
+    <% end %>
+    
+    <tr><td colspan="5" class="h5">Upcoming</td></tr>
+     <% if @user.send("#{event}_future_events").count > 0 %>
+      <% @user.send("#{event}_future_events").each do |event| %>
+        <tr>
+          <td scope="row"><%= event.date.strftime('%d %b %Y') %></td>
+          <td><%= link_to event.title, event_path(event) %></td>
+          <td><%= event.location %></td>
+          <td><%= link_to event.creator.name.titlecase, user_path(event.creator) %></td>
+          <td ><%= link_to event.attendees.count, event_path(event)  %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr><td colspan="5">No upcoming events to show :(</td></tr>
+    <% end %>
+  </tbody>
+</table> 

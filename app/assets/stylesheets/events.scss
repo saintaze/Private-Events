@@ -1,0 +1,33 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.event-view {
+  position: absolute;
+  left: -9rem;
+  top: 8.2rem;
+}
+
+@media screen and (max-width: 840px) {
+  .event-view {
+    position: static;
+    
+    h5 {
+      display: none;
+    }
+
+     .event-view-options {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.6rem;
+     }
+  }
+}
+
+.event-attendees {
+  padding-left: 0;
+  list-style-position: inside;
+  list-style-type: decimal-leading-zero;
+}
+

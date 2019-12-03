@@ -1,0 +1,51 @@
+
+<% if @events&.any? %>
+  <div class="mt-5">
+    <div class="col-md-8 offset-md-2 all-events">
+    
+      <h1 class="text-center mb-5"><%= params[:type] == 'past' ? "Past Events" : "Upcoming Events" %></h1>
+
+      <div class="event-view">
+        <h5>Type</h5>
+        <div class="event-view-options">
+          <div><%= link_to 'Upcoming', events_path(type: "future"), class: "#{event_type_active_link?('future')}" %></div>
+          <div><%= link_to 'Past', events_path(type: "past"), class: "#{event_type_active_link?('past')}" %></div>
+        </div>
+      </div>
+
+      <% @events.each_with_index do |event, i|%>
+        <div class="card border-<%= border_color(i) %>  text-center" style="margin-bottom: 1.9rem">
+          <div class="card-header d-flex justify-content-between">
+
+            <div class="creator">host / <%= link_to  event.creator.name.titleize , user_path(event.creator) %></div>
+            <div class="time ">           
+               <%= event.date.strftime('%d %B %Y') %>              
+            </div>
+
+          </div>
+          <div class="card-body">
+            <h3 class="event-heading"><%= link_to event.title, event_path(event) %> </h3>
+            <h4 class="card-title"><%= i + 1 %> </h4>
+            <p class="card-text"><%= event.description %></p>
+          </div>
+          <div class="card-header d-flex justify-content-between" style="border-top: 1px solid rgba(0, 0, 0, 0.125); border-bottom: 0">
+
+          <div>Attending / <%= link_to event.attendees.count, event_path(event) %></div>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'event_pagination_nav' %>
+
+
+<% else %>
+  <div class="row text-center">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="first-post my-5">Be the first star to create an event!</h2>
+      <%= link_to 'New Event', new_event_path, class: "btn btn-primary btn-lg signup-btn" %>
+    </div>
+  </div>
+<% end %>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center">
   <%= link_to 'Event Room', root_path, class: "navbar-brand nav-link #{active_link?(root_path)}"%>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,14 +13,17 @@
       <li class="nav-item">
         <%= link_to 'Contact', contact_path, class: "nav-link #{active_link?(contact_path)}"%>
       </li>
+      <li class="nav-item">
+        <%= link_to 'Events', events_path(type: "future"), class: "nav-link #{active_link?(events_path)}"%>
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
 
     <ul class="navbar-nav ml-auto">
-      <% if logged_in? %>         
+      <% if logged_in? %> 
+         <li class="nav-item">
+          <%= link_to 'Profile', user_path(current_user), class: "nav-link" %>
+        </li>     
         <li class="nav-item">
           <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
         </li>

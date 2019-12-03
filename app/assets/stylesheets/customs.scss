@@ -1,6 +1,10 @@
  @import "bootstrap";
  @import "variables";
 
+ body {
+   word-break: break-word;
+ }
+
 .contact-icon-box {
   margin-right: 1rem;
 
@@ -39,5 +43,48 @@ a {
 
 .field_with_errors input, .field_with_errors textarea{
   border: 1px solid $warning;
+}
+
+
+a{
+  color: #f93d67;
+}
+a:hover {
+  color: #ef42a9;
+  text-decoration: none;
+}
+
+.event-view {
+  a.active {
+    color: #ef42a9;
+    text-decoration: none;
+  }
+
+  a.active:hover {
+    color: #f93d67;
+  }
+
+  a {
+    color: $primary;
+  }
+}
+
+.card a {
+  color: $primary;
+
+  &:hover {
+    color: #cc9200;// #d8a117;
+    text-decoration: underline;
+  }
+}
+
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+table th, table td {
+    overflow: hidden;
 }
 

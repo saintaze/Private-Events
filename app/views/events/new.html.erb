@@ -1,0 +1,39 @@
+<h1 class="text-center my-5 signup-heading">Create Event<span class="signup-tagline">Pull out all the stops!</span></h1>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_with(model: @event, local: true, class: "signup-form") do |f| %>
+
+      <%= render 'shared/errors', object: f.object %>
+    
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control", placeholder: "Enter title" %>
+        <small id="title-help" class="form-text text-muted">title must not be more than 255 chars</small>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :location %>
+        <%= f.text_field :location, class: "form-control", placeholder: "Enter location" %>
+        <small id="location-help" class="form-text text-muted">location must not be more than 255 chars</small>
+      </div>
+
+       <div class="form-group">
+        <%= f.label :date %>
+        <%= f.date_field :date, class: "form-control", placeholder: "Enter date" %>
+        <small id="date-help" class="form-text text-muted">date must be in the future</small>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: "form-control", placeholder: "Enter description", rows: 8, style: "margin-bottom: 1.3rem;" %>
+      </div>
+
+      <%= f.submit :submit, class: "btn btn-success signup-btn" %>
+      
+    <% end%>
+  
+  </div>
+</div>
+
+
