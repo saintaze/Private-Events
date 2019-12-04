@@ -1,24 +1,33 @@
-# README
+# Private-Events (Event-Room)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is a place where anyone can create and share events. Others can browse events. They can see the past and future events. They can register for an event and can accept or reject an invitation.
 
-Things you may want to cover:
+# Built With
+ - Ruby on Rails 6
 
-* Ruby version
+## Installation
 
-* System dependencies
+- Clone repo and run `bundle install`. 
 
-* Configuration
+## Model Design
 
-* Database creation
+- The site can have users. 
+- User can create event. 
+- User can attend event.
+- Event can have attendees.
 
-* Database initialization
+### Features
++ Clean looking UI
++ Supprt 2 distinct event views (upcoming, past).
++ Full athentication and authorization flow.
++ Remember-Me feature to persist session.
++ Entire pagination feature is self-written (no gem) 
++ Web content is self-written.
++ Each User can attend or unattend an event
++ An Event can have potential list of attendees.
 
-* How to run the test suite
+#Live Version
+#### URL [Start Sharing Secrets](https://secretclub.herokuapp.com/)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Author
++ Saintaze [@saintaze](https://github.com/saintaze/)
