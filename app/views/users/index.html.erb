@@ -1,4 +1,6 @@
 <h1 class="my-5">Users</h1>
+
+<% if User.count - 1 > 0 %>
 <h5 style="text-transform: none; letter-spacing: 1px;" class="mb-5">Provide the event id (only for the event you have created) and select the users you want to invite.</h5>
 <%= form_with(url: invite_users_path, local: true) do |f| %>
 
@@ -26,5 +28,8 @@
   
 <% end %>
 
+<% else %>
+  <h5 style="text-transform: none; letter-spacing: 1px;" class="mb-5">.Oops! There is no one to invite :(</h5>
+<% end %>
 
 
