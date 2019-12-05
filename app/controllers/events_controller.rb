@@ -29,6 +29,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    redirect_to root_url unless @event
   end
 
   def attend

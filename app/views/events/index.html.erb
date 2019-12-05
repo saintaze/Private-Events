@@ -32,7 +32,7 @@
 
           </div>
           <div class="card-body">
-            <h3 class="event-heading" style="font-size: 1.4rem; margin-bottom: 1.6rem;"><%= link_to event.title, event_path(event) %> </h3>
+            <h3 class="event-heading" style="font-size: 1.4rem; margin-bottom: 1.6rem; text-transform: capitalize;"><%= link_to event.title, event_path(event) %> </h3>
             <p class="card-title"><%= event.description %></p>
           </div>
           <div class="card-header d-flex justify-content-between" style="border-top: 1px solid rgba(0, 0, 0, 0.125); border-bottom: 0">
@@ -51,8 +51,14 @@
 <% else %>
   <div class="row text-center">
     <div class="col-md-8 offset-md-2">
-      <h2 class="first-post my-5">Be the first star to create an event!</h2>
-      <%= link_to 'New Event', new_event_path, class: "btn btn-primary btn-lg signup-btn" %>
+      <h2 class="first-post mb-5" style="margin-top: 5rem;">Be the first star to create an event!</h2>
+     
+     <% if logged_in? %>
+        <%= link_to 'New Event', new_event_path, class: "btn btn-primary btn-lg signup-btn" %>
+      <% else%>
+        <%= link_to 'Sign Up', signup_path, class: "btn btn-primary btn-lg signup-btn" %>
+     <% end %>
+         
     </div>
   </div>
 <% end %>

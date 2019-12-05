@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       login @user
       remember @user
       flash[:success] = "Welcome to Event Room! Experience new opportunities."
-      redirect_to root_url
+      redirect_to events_path
     else 
       render 'new'
     end

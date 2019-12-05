@@ -46,3 +46,8 @@
   list-style-type: decimal-leading-zero;
 }
 
+@media screen and (max-width: 750px) {
+  .pagination {
+    transform: scale(0.7);
+  }
+}

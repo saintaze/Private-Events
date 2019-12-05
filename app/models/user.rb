@@ -46,20 +46,20 @@ class User < ApplicationRecord
   end
 
   def created_past_events 
-    events.where("date < ? ",Time.zone.now )
+    events.where("date < ? ",Date.today )
   end
 
 
   def created_future_events 
-    events.where("date >= ? ",Time.zone.now )
+    events.where("date >= ? ",Date.today )
   end
 
   def attended_past_events 
-    attended_events.where("date < ? ",Time.zone.now )
+    attended_events.where("date < ? ",Date.today )
   end
 
   def attended_future_events 
-    attended_events.where("date >= ? ",Time.zone.now )
+    attended_events.where("date >= ? ",Date.today )
   end
   #/// CLASS METHODS ////#
 

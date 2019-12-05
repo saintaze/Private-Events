@@ -6,7 +6,7 @@
       <h1 class="mr-5"><%= @event.title %></h1>
       <div>
         
-        <% if logged_in? && @event.date >= Time.zone.now %>
+        <% if logged_in? && @event.date >= Date.today %>
           <% unless current_user.attended_events.include?(@event) %>
             <%= render 'event_attend' %>
           <% else %>
