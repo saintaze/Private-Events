@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_162529) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  # in events add creator_id
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
