@@ -1,6 +1,6 @@
 # Private-Events (Event-Room)
 
-It is a place where anyone can create and share events. Others can browse events. They can see the past and future events. They can register for an event and can accept or reject an invitation.
+It is a place where anyone can create events and invite others to an event. Others can browse events. They can see the past and future events. They can attend or unattend an event.
 
 # Built With
  - Ruby on Rails 6
@@ -12,8 +12,9 @@ It is a place where anyone can create and share events. Others can browse events
 ## Model Design
 
 - The site can have users. 
-- User can create event. 
-- User can attend event.
+- User can create an event.
+- Creator can invite others to an event. 
+- User can attend or unattend an event.
 - Event can have attendees.
 
 ### Features
@@ -23,6 +24,7 @@ It is a place where anyone can create and share events. Others can browse events
 + Remember-Me feature to persist session.
 + Entire pagination feature is self-written (no gem) 
 + Web content is self-written.
++ Creator can invite to events.
 + Each User can attend or unattend an event
 + An Event can have potential list of attendees.
 

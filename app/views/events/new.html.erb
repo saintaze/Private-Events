@@ -20,7 +20,7 @@
 
        <div class="form-group">
         <%= f.label :date %>
-        <%= f.date_field :date, class: "form-control", placeholder: "Enter date" %>
+        <%= f.date_field :date, min: Time.now, class: "form-control", placeholder: "Enter date" %>
         <small id="date-help" class="form-text text-muted">date must be in the future</small>
       </div>
 

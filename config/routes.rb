@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   post      '/login',        to: 'sessions#create' 
   delete    '/logout',       to: 'sessions#destroy' 
 
-  resources :users,          only: [:create, :show]   
+  resources :users, only: [:index, :create, :show]  do 
+    collection do
+      post :invite
+    end
+  end  
   
   resources :events, only: [:index, :new, :create, :show]  do 
     collection do

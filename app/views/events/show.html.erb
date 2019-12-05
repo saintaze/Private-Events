@@ -12,10 +12,23 @@
           <% else %>
             <%= render 'event_unattend' %>
           <% end %>
+          
+          <% if logged_in? && @event.creator.id == current_user.id %>
+            <%= link_to 'Invite', users_path, class: "btn btn-warning btn-sm mt-3", style:"width: 71.40px;" %>
+          <% end %>
+          
         <% end %>
         
       </div>
     </div>
+  
+    <% if logged_in? && @event.creator.id == current_user.id %>
+      <div class="host mb-2">
+        <span class="font-weight-bold text-primary">Id:</span> 
+        <%= link_to @event.id, event_path(@event) %>
+      </div>
+    <% end %>
+
     <div class="host mb-2">
       <span class="font-weight-bold text-primary">Host:</span> 
       <%= link_to @event.creator.name.titleize, user_path(@event.creator) %>

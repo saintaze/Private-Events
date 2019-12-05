@@ -56,12 +56,12 @@ a:hover {
 
 .event-view {
   a.active {
-    color: #ef42a9;
+    color: #f93d67;
     text-decoration: none;
   }
 
   a.active:hover {
-    color: #f93d67;
+    color:  #ef42a9;
   }
 
   a {
@@ -73,8 +73,8 @@ a:hover {
   color: $primary;
 
   &:hover {
-    color: #cc9200;// #d8a117;
-    text-decoration: underline;
+    color:  brown// #cc9200;// #d8a117;
+    // text-decoration: underline;
   }
 }
 

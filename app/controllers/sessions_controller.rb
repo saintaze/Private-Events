@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-    
+  before_action :logged_in_user, only: [:destroy]
+
   def new
-    
   end
 
   def create
@@ -15,6 +15,10 @@ class SessionsController < ApplicationController
       flash.now[:danger] = "Invalid email/password combination"
       render 'new'
     end
+  end
+
+  def correct_user(user)
+    user == current_user
   end
 
   def destroy

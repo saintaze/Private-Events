@@ -9,6 +9,12 @@
   top: 8.2rem;
 }
 
+.create-event {
+  position: absolute;
+  top: 8.2rem;
+  right: -9rem;
+}
+
 @media screen and (max-width: 840px) {
   .event-view {
     position: static;
@@ -20,8 +26,17 @@
      .event-view-options {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 1.6rem;
+        margin-bottom: 1rem;
      }
+  }
+
+  .create-event {
+    position: static;
+    margin-bottom: 1rem;
+    
+    a {
+      display: block;
+    }
   }
 }
 

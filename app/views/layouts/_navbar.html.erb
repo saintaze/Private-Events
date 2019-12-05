@@ -16,6 +16,12 @@
       <li class="nav-item">
         <%= link_to 'Events', events_path(type: "future"), class: "nav-link #{active_link?(events_path)}"%>
       </li>
+      <% if logged_in? && current_user.events.count > 0 %>
+        <li class="nav-item">
+        <%= link_to 'Invite', users_path, class: "nav-link #{active_link?(users_path)}"%>
+      </li>
+      <% end %>
+      
     </ul>
 
 

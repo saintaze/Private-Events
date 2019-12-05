@@ -2,19 +2,21 @@
 <table class="table table-hover table-sm">
   <thead>
    <tr>
-      <th scope="col" style="width: 16%">Date</th>
-      <th scope="col" style="width: 30%">Title</th>
-      <th scope="col" style="width: 27%">Location</th>
-      <th scope="col" style="width: 14%">Host</th>
-      <th scope="col" style="width: 16%">Guests</th>
+      <th scope="col" style="width: 6%">Id</th>
+      <th scope="col" style="width: 14%">Date</th>
+      <th scope="col" style="width: 29%">Title</th>
+      <th scope="col" style="width: 25%">Location</th>
+      <th scope="col" style="width: 12%">Host</th>
+      <th scope="col" style="width: 14%">Guests</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td colspan="5" class="h5">Past</td></tr>
+    <tr><td colspan="6" class="h5 py-4">Past</td></tr>
     <% if @user.send("#{event}_past_events").count > 0 %>
       <% @user.send("#{event}_past_events").each do |event| %>
         <tr>
-          <td scope="row"><%= event.date.strftime('%d %b %Y') %></td>
+          <td scope="row"><%= link_to event.id, event_path(event) %></td>
+          <td><%= event.date.strftime('%d %b %Y') %></td>
           <td><%= link_to event.title, event_path(event) %></td>
           <td><%= event.location %></td>
           <td><%= link_to event.creator.name.titlecase, user_path(event.creator) %></td>
@@ -22,14 +24,15 @@
         </tr>
       <% end %>
     <% else %>
-      <tr><td colspan="5">No past events to show :)</td></tr>
+      <tr><td colspan="6" class="py-4">No past events to show :)</td></tr>
     <% end %>
     
-    <tr><td colspan="5" class="h5">Upcoming</td></tr>
+    <tr><td colspan="6" class="h5 py-4">Upcoming</td></tr>
      <% if @user.send("#{event}_future_events").count > 0 %>
       <% @user.send("#{event}_future_events").each do |event| %>
         <tr>
-          <td scope="row"><%= event.date.strftime('%d %b %Y') %></td>
+          <td scope="row"><%= link_to event.id, event_path(event) %></td>
+          <td><%= event.date.strftime('%d %b %Y') %></td>
           <td><%= link_to event.title, event_path(event) %></td>
           <td><%= event.location %></td>
           <td><%= link_to event.creator.name.titlecase, user_path(event.creator) %></td>
@@ -37,7 +40,7 @@
         </tr>
       <% end %>
     <% else %>
-      <tr><td colspan="5">No upcoming events to show :(</td></tr>
+      <tr><td colspan="6" class="py-4">No upcoming events to show :(</td></tr>
     <% end %>
   </tbody>
 </table> 

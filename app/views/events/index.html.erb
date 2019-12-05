@@ -12,6 +12,14 @@
           <div><%= link_to 'Past', events_path(type: "past"), class: "#{event_type_active_link?('past')}" %></div>
         </div>
       </div>
+      
+      <% if logged_in? %>
+        <div class="create-event">
+          <%= link_to 'New Event', new_event_path, class: "btn btn-primary btn-sm" %>
+        </div>
+      <% end %>
+      
+   
 
       <% @events.each_with_index do |event, i|%>
         <div class="card border-<%= border_color(i) %>  text-center" style="margin-bottom: 1.9rem">
@@ -24,9 +32,8 @@
 
           </div>
           <div class="card-body">
-            <h3 class="event-heading"><%= link_to event.title, event_path(event) %> </h3>
-            <h4 class="card-title"><%= i + 1 %> </h4>
-            <p class="card-text"><%= event.description %></p>
+            <h3 class="event-heading" style="font-size: 1.4rem; margin-bottom: 1.6rem;"><%= link_to event.title, event_path(event) %> </h3>
+            <p class="card-title"><%= event.description %></p>
           </div>
           <div class="card-header d-flex justify-content-between" style="border-top: 1px solid rgba(0, 0, 0, 0.125); border-bottom: 0">
 

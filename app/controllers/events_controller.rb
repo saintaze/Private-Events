@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :new]
+  before_action :logged_in_user, only: [:create, :new, :attend, :unattend]
 
   include EventsHelper
 
@@ -50,4 +50,5 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :description, :location, :date)
   end
+
 end

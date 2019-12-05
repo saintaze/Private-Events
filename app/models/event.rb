@@ -19,6 +19,7 @@ class Event < ApplicationRecord
 
   scope :past, -> { where("date < ?", DateTime.now) }
   scope :future, -> { where("date > ?", DateTime.now) }
+  
   # location validation
   validates :location, presence: true,
                        length: {maximum: 255}

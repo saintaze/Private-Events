@@ -1,0 +1,30 @@
+<h1 class="my-5">Users</h1>
+<h5 style="text-transform: none; letter-spacing: 1px;" class="mb-5">Provide the event id (only for the event you have created) and select the users you want to invite.</h5>
+<%= form_with(url: invite_users_path, local: true) do |f| %>
+
+  <div class="form-group mb-3">
+    <%= f.label "event_id", "Event Id" %>
+    <%= f.number_field "event_id", class: "form-control", placeholder: "Enter Event Id", style: "width: 301px;", min: "1"%>
+    <small id="eventid-help" class="form-text text-muted">event id must be a number more than or equal to 1 </small>
+  </div>
+
+  <ul class="users-list">
+    <% @users.each do |user| %>
+      <% unless user == current_user %> 
+        <div class="form-group" style="margin-bottom: 0">
+          <div class="form-check">
+            <%= f.label :invitees, class:"form-check-label", style:"font-size: .9rem;" do%>
+              <%= check_box_tag "invitees[]", user.id%>
+              <%= link_to user.name.titleize , user_path(user), class: "pl-1" %>        
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= f.submit :Invite, class: "btn btn-success " %>
+  
+<% end %>
+
+
+
