@@ -32,4 +32,4 @@ It is a place where user can create events and invite others to an event. Others
 #### URL [Start Creating Events](https://eventroom.herokuapp.com/)
 
 # Author
-+ Saintaze [@saintaze](https://github.com/saintaze/)
+Saintaze [@saintaze](https://github.com/saintaze/)
